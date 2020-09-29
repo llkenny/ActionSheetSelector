@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ActionSheetSelector_Example' do
+  pod 'ActionSheetSelector', :path => '../'
+
+  target 'ActionSheetSelector_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
