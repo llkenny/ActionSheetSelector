@@ -1,0 +1,16 @@
+PODS:
+  - ActionSheetSelector (0.1.0)
+
+DEPENDENCIES:
+  - ActionSheetSelector (from `../`)
+
+EXTERNAL SOURCES:
+  ActionSheetSelector:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ActionSheetSelector: 4aac3267dcd9490e8a90f6115b016badc385a145
+
+PODFILE CHECKSUM: d3ecba660a8d858114fc4c2f2e013a101a8b6940
+
+COCOAPODS: 1.9.1
