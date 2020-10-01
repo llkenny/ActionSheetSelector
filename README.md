@@ -1,3 +1,5 @@
+NOT READY YET
+
 # ActionSheetSelector
 
 [![CI Status](https://img.shields.io/travis/Maxim Doroshenko/ActionSheetSelector.svg?style=flat)](https://travis-ci.org/Maxim Doroshenko/ActionSheetSelector)
