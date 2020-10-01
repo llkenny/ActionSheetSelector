@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActionSheetSelectorViewController" customModule="ActionSheetSelector" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="gMc-gM-IMX" id="xqf-NQ-ek9"/>
+                <outlet property="emptyView" destination="Z4A-yx-hiO" id="7YM-Qq-rVD"/>
+                <outlet property="tableView" destination="283-ue-dsN" id="5pb-8a-uOB"/>
+                <outlet property="tableViewHeight" destination="fKQ-bj-SGr" id="3MI-QP-Dpf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4A-yx-hiO" userLabel="Empty View">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="EYZ-ux-Nco" appends="YES" id="0Nz-dk-p0v"/>
+                    </connections>
+                </view>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMc-gM-IMX" userLabel="Content View">
+                    <rect key="frame" x="0.0" y="533.5" width="414" height="362.5"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hf7-Mz-rVA">
+                            <rect key="frame" x="16" y="16" width="382" height="330.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMt-nX-tfn">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="283-ue-dsN">
+                                    <rect key="frame" x="0.0" y="30.5" width="382" height="300"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" priority="750" constant="300" id="fKQ-bj-SGr"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="iDn-4d-dBQ"/>
+                                        <outlet property="delegate" destination="-1" id="fkf-xd-zzN"/>
+                                    </connections>
+                                </tableView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Hf7-Mz-rVA" secondAttribute="trailing" constant="16" id="04Z-TJ-ykt"/>
+                        <constraint firstItem="Hf7-Mz-rVA" firstAttribute="top" secondItem="gMc-gM-IMX" secondAttribute="top" constant="16" id="BWb-5E-KTm"/>
+                        <constraint firstItem="Hf7-Mz-rVA" firstAttribute="leading" secondItem="gMc-gM-IMX" secondAttribute="leading" constant="16" id="CcV-6R-y6c"/>
+                        <constraint firstAttribute="bottom" secondItem="Hf7-Mz-rVA" secondAttribute="bottom" priority="750" constant="16" id="loD-mI-JyQ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Z4A-yx-hiO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9BO-Iu-sqy"/>
+                <constraint firstAttribute="bottom" secondItem="gMc-gM-IMX" secondAttribute="bottom" id="DRd-AT-9gF"/>
+                <constraint firstItem="gMc-gM-IMX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Rgo-Ru-1da"/>
+                <constraint firstAttribute="bottom" secondItem="Z4A-yx-hiO" secondAttribute="bottom" id="TAC-c4-7Fk"/>
+                <constraint firstItem="Z4A-yx-hiO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="W9M-Fi-pcr"/>
+                <constraint firstItem="Z4A-yx-hiO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="kb9-1J-squ"/>
+                <constraint firstItem="gMc-gM-IMX" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="wkw-fi-Zmh"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="142"/>
+        </view>
+        <tapGestureRecognizer id="EYZ-ux-Nco">
+            <connections>
+                <action selector="emptyViewTouch:" destination="-1" id="S2p-cf-EjF"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>

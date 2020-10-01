@@ -31,4 +31,9 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'ActionSheetSelector/Classes/**/*'
 
+  s.resource_bundles = {
+      'ActionSheetSelector' => ['ActionSheetSelector/Assets/*.{storyboard,xib,xcassets,json,imageset,png}']
+  }
+
+  s.swift_version = '5.0'
 end

@@ -7,18 +7,21 @@
 //
 
 import UIKit
+import ActionSheetSelector
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func showButtonTouch(_ sender: Any) {
+        let image = UIImage(named: "checked")!
+        let cellStyle = CellStyleConfig(iconImage: image)
+        ActionSheetSelectorViewController.present(parent: self, cellStyle: cellStyle, items: Array(repeating: "3", count: 5)) { item in
+            debugPrint(item)
+        }
     }
-
 }
-
