@@ -7,15 +7,15 @@
 
 import UIKit
 
-public class ActionSheetSelectorViewController: UIViewController {
+public class ActionSheetSelectorViewController<T: CellItem>: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
 
-    fileprivate var items: [String]! // TODO: Convert to generics
-    fileprivate var onSelect: ((String) -> Void)!
+    fileprivate var items: [T]!
+    fileprivate var onSelect: ((T) -> Void)!
     fileprivate var cellStyle = CellStyleConfig()
     fileprivate var style = StyleConfig()
     private let animationDuration: TimeInterval = 0.2
@@ -26,15 +26,15 @@ public class ActionSheetSelectorViewController: UIViewController {
                                style: StyleConfig = StyleConfig(),
                                cellStyle: CellStyleConfig = CellStyleConfig(),
                                title: String? = nil,
-                               items: [String],
-                               onSelect: @escaping (String) -> Void) {
+                               items: [T],
+                               onSelect: @escaping (T) -> Void) {
         let controller = instantiate(style: style, cellStyle: cellStyle, title: title, items: items, onSelect: onSelect)
         controller.modalPresentationStyle = .overCurrentContext
         parent.present(controller, animated: false)
     }
 
-    public static func instantiate(style: StyleConfig, cellStyle: CellStyleConfig, title: String?, items: [String], onSelect: @escaping (String) -> Void) -> ActionSheetSelectorViewController {
-        let controller = ActionSheetSelectorViewController(nibName: String(describing: ActionSheetSelectorViewController.self), bundle: Bundle.resources)
+    public static func instantiate(style: StyleConfig, cellStyle: CellStyleConfig, title: String?, items: [T], onSelect: @escaping (T) -> Void) -> ActionSheetSelectorViewController {
+        let controller = ActionSheetSelectorViewController(nibName: "ActionSheetSelectorViewController", bundle: Bundle.resources)
         controller.cellStyle = cellStyle
         controller.style = style
         controller.items = items
@@ -84,9 +84,8 @@ public class ActionSheetSelectorViewController: UIViewController {
             self?.dismiss(animated: false)
         }
     }
-}
 
-extension ActionSheetSelectorViewController: UITableViewDataSource {
+    // MARK: UITableViewDataSource
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -94,12 +93,11 @@ extension ActionSheetSelectorViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ItemTableViewCell
-        cell.config(style: cellStyle, title: item)
+        cell.config(style: cellStyle, title: item.title)
         return cell
     }
-}
 
-extension ActionSheetSelectorViewController: UITableViewDelegate {
+    // MARK: UITableViewDelegate
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
         onSelect(item)
