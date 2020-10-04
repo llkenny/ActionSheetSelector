@@ -11,13 +11,14 @@ public struct CellStyleConfig {
     let spacing: CGFloat
     let backgroundColor: UIColor
     let titleColor: UIColor
+    let titleSelectedColor: UIColor
     let titleFont: UIFont
     let iconImage: UIImage?
-    // TODO: selectedColor
 
     public init(spacing: CGFloat = 8,
          backgroundColor: UIColor = UIColor.white,
          titleColor: UIColor = UIColor.black,
+         titleSelectedColor: UIColor = UIColor.blue,
          titleFont: UIFont = UIFont.systemFont(ofSize: 16),
          iconImage: UIImage? = nil) {
         self.spacing = spacing
@@ -25,5 +26,6 @@ public struct CellStyleConfig {
         self.titleColor = titleColor
         self.titleFont = titleFont
         self.iconImage = iconImage
+        self.titleSelectedColor = titleSelectedColor
     }
 }

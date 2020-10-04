@@ -19,8 +19,8 @@ final class ViewController: UIViewController {
 
     @IBAction func showButtonTouch(_ sender: Any) {
         let image = UIImage(named: "checked")!
-        let cellStyle = CellStyleConfig(iconImage: image)
-        ActionSheetSelectorViewController.present(parent: self, cellStyle: cellStyle, items: Array(repeating: "3", count: 5)) { item in
+        let cellStyle = CellStyleConfig(titleSelectedColor: UIColor(red: 0, green: 0.37, blue: 0.72, alpha: 1), iconImage: image)
+        ActionSheetSelectorViewController.present(parent: self, cellStyle: cellStyle, title: "Test", items: Array(repeating: "3", count: 5)) { item in
             debugPrint(item)
         }
     }

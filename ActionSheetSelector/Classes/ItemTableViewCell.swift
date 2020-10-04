@@ -13,11 +13,12 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
 
     private var titleColor = UIColor.black
+    private var titleSelectedColor: UIColor = UIColor.blue
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         iconImageView.alpha = selected ? 1 : 0
-        titleLabel.textColor = selected ? UIColor.blue : titleColor // TODO: Provide custom selected color
+        titleLabel.textColor = selected ? titleSelectedColor : titleColor
     }
 
     func config(style: CellStyleConfig = CellStyleConfig(), title: String) {
@@ -30,5 +31,6 @@ class ItemTableViewCell: UITableViewCell {
         titleLabel.text = title
 
         titleColor = style.titleColor
+        titleSelectedColor = style.titleSelectedColor
     }
 }

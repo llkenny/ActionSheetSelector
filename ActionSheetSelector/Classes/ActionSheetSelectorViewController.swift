@@ -12,6 +12,7 @@ public class ActionSheetSelectorViewController: UIViewController {
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var titleLabel: UILabel!
 
     fileprivate var items: [String]! // TODO: Convert to generics
     fileprivate var onSelect: ((String) -> Void)!
@@ -24,14 +25,15 @@ public class ActionSheetSelectorViewController: UIViewController {
     public static func present(parent: UIViewController,
                                style: StyleConfig = StyleConfig(),
                                cellStyle: CellStyleConfig = CellStyleConfig(),
+                               title: String? = nil,
                                items: [String],
                                onSelect: @escaping (String) -> Void) {
-        let controller = instantiate(style: style, cellStyle: cellStyle, items: items, onSelect: onSelect)
+        let controller = instantiate(style: style, cellStyle: cellStyle, title: title, items: items, onSelect: onSelect)
         controller.modalPresentationStyle = .overCurrentContext
         parent.present(controller, animated: false)
     }
 
-    public static func instantiate(style: StyleConfig, cellStyle: CellStyleConfig, items: [String], onSelect: @escaping (String) -> Void) -> ActionSheetSelectorViewController {
+    public static func instantiate(style: StyleConfig, cellStyle: CellStyleConfig, title: String?, items: [String], onSelect: @escaping (String) -> Void) -> ActionSheetSelectorViewController {
         let controller = ActionSheetSelectorViewController(nibName: String(describing: ActionSheetSelectorViewController.self), bundle: Bundle.resources)
         controller.cellStyle = cellStyle
         controller.style = style
@@ -40,6 +42,7 @@ public class ActionSheetSelectorViewController: UIViewController {
         controller.loadViewIfNeeded()
         controller.config(style: style)
         controller.tableViewHeight.constant = 0
+        controller.titleLabel.text = title
         return controller
     }
     

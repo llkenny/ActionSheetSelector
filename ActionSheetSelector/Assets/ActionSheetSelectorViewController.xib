@@ -14,6 +14,7 @@
                 <outlet property="emptyView" destination="Z4A-yx-hiO" id="7YM-Qq-rVD"/>
                 <outlet property="tableView" destination="283-ue-dsN" id="5pb-8a-uOB"/>
                 <outlet property="tableViewHeight" destination="fKQ-bj-SGr" id="3MI-QP-Dpf"/>
+                <outlet property="titleLabel" destination="jMt-nX-tfn" id="c16-hX-7sy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
