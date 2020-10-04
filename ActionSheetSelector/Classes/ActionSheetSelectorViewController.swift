@@ -43,6 +43,9 @@ public class ActionSheetSelectorViewController<T: CellItem>: UIViewController, U
         controller.config(style: style)
         controller.tableViewHeight.constant = 0
         controller.titleLabel.text = title
+        controller.titleLabel.font = style.titleFont
+        controller.titleLabel.textColor = style.titleColor
+        controller.contentView.backgroundColor = style.backgroundColor
         return controller
     }
     
