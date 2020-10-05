@@ -104,5 +104,6 @@ public class ActionSheetSelectorViewController<T: CellItem>: UIViewController, U
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
         onSelect(item)
+        dismiss()
     }
 }
