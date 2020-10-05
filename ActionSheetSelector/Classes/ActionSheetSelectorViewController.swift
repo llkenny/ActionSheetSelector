@@ -14,6 +14,8 @@ public class ActionSheetSelectorViewController<T: CellItem>: UIViewController, U
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
 
+    @IBOutlet private weak var titleOffset: NSLayoutConstraint!
+
     fileprivate var items: [T]!
     fileprivate var onSelect: ((T) -> Void)!
     fileprivate var cellStyle = CellStyleConfig()
@@ -45,6 +47,7 @@ public class ActionSheetSelectorViewController<T: CellItem>: UIViewController, U
         controller.titleLabel.text = title
         controller.titleLabel.font = style.titleFont
         controller.titleLabel.textColor = style.titleColor
+        controller.titleOffset.constant = style.titleOffset
         controller.contentView.backgroundColor = style.backgroundColor
         return controller
     }
