@@ -1,11 +1,10 @@
-NOT READY YET
-
 # ActionSheetSelector
 
-[![CI Status](https://img.shields.io/travis/Maxim Doroshenko/ActionSheetSelector.svg?style=flat)](https://travis-ci.org/Maxim Doroshenko/ActionSheetSelector)
 [![Version](https://img.shields.io/cocoapods/v/ActionSheetSelector.svg?style=flat)](https://cocoapods.org/pods/ActionSheetSelector)
 [![License](https://img.shields.io/cocoapods/l/ActionSheetSelector.svg?style=flat)](https://cocoapods.org/pods/ActionSheetSelector)
 [![Platform](https://img.shields.io/cocoapods/p/ActionSheetSelector.svg?style=flat)](https://cocoapods.org/pods/ActionSheetSelector)
+
+The library provides the ability to use a pop-up list of items with the ability to select one of them.
 
 ## Example
 
