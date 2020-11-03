@@ -22,7 +22,6 @@ public class ActionSheetSelectorViewController<T: CellItem>: UIViewController, U
     fileprivate var style = StyleConfig()
     private let animationDuration: TimeInterval = 0.2
     private let emptyViewAlpha: CGFloat = 0.2 // TODO: Move to style
-    // TODO: Add bottom safe with save color as tableView
 
     public static func present(parent: UIViewController,
                                style: StyleConfig = StyleConfig(),
