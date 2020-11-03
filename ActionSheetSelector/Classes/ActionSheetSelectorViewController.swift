@@ -22,6 +22,14 @@ public class ActionSheetSelectorViewController<T: CellItem>: UIViewController, U
     fileprivate var style = StyleConfig()
     private let animationDuration: TimeInterval = 0.2
 
+    /// Presenting method
+    /// - Parameters:
+    ///   - parent: Parent UIViewController
+    ///   - style: Style configuration for the sheet
+    ///   - cellStyle: Style configuration for cells
+    ///   - title: Title
+    ///   - items: Items array
+    ///   - onSelect: Closure for selection
     public static func present(parent: UIViewController,
                                style: StyleConfig = StyleConfig(),
                                cellStyle: CellStyleConfig = CellStyleConfig(),
@@ -33,7 +41,7 @@ public class ActionSheetSelectorViewController<T: CellItem>: UIViewController, U
         parent.present(controller, animated: false)
     }
 
-    public static func instantiate(style: StyleConfig, cellStyle: CellStyleConfig, title: String?, items: [T], onSelect: @escaping (T) -> Void) -> ActionSheetSelectorViewController {
+    private static func instantiate(style: StyleConfig, cellStyle: CellStyleConfig, title: String?, items: [T], onSelect: @escaping (T) -> Void) -> ActionSheetSelectorViewController {
         let controller = ActionSheetSelectorViewController(nibName: "ActionSheetSelectorViewController", bundle: Bundle.resources)
         controller.cellStyle = cellStyle
         controller.style = style

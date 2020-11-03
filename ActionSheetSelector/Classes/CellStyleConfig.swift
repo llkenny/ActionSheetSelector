@@ -7,12 +7,19 @@
 
 import UIKit
 
+/// Style configuration for the item cell
 public struct CellStyleConfig {
+    /// Spacing between icon and title
     let spacing: CGFloat
+    /// Background color
     let backgroundColor: UIColor
+    /// Title color
     let titleColor: UIColor
+    /// Selected title color
     let titleSelectedColor: UIColor
+    /// Title font
     let titleFont: UIFont
+    /// Icon image
     let iconImage: UIImage?
 
     public init(spacing: CGFloat = 8,
