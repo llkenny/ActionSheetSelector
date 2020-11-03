@@ -21,7 +21,6 @@ public class ActionSheetSelectorViewController<T: CellItem>: UIViewController, U
     fileprivate var cellStyle = CellStyleConfig()
     fileprivate var style = StyleConfig()
     private let animationDuration: TimeInterval = 0.2
-    private let emptyViewAlpha: CGFloat = 0.2 // TODO: Move to style
 
     public static func present(parent: UIViewController,
                                style: StyleConfig = StyleConfig(),
@@ -60,7 +59,7 @@ public class ActionSheetSelectorViewController<T: CellItem>: UIViewController, U
         super.viewDidAppear(animated)
         tableViewHeight.constant = CGFloat(items.count) * style.cellHeight
         UIView.animate(withDuration: animationDuration, animations: {
-            self.emptyView.alpha = self.emptyViewAlpha
+            self.emptyView.alpha = self.style.emptyAlpha
             self.view.layoutIfNeeded()
         })
     }
