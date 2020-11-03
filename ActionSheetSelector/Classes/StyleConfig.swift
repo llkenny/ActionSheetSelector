@@ -7,13 +7,21 @@
 
 import Foundation
 
+/// Style configration for the main view
 public struct StyleConfig {
+    /// Title font
     let titleFont: UIFont
+    /// Title color
     let titleColor: UIColor
+    /// Title left offset
     let titleOffset: CGFloat
+    /// Background color
     let backgroundColor: UIColor
+    /// Cell height
     let cellHeight: CGFloat
+    /// Sheet corner radius
     let cornerRadius: CGFloat
+    /// Darkening effect transparency
     let emptyAlpha: CGFloat
 
     public init(titleFont: UIFont = UIFont.systemFont(ofSize: 17, weight: .semibold),
