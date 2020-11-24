@@ -29,19 +29,21 @@ public class ActionSheetSelectorViewController<T: CellItem>: UIViewController, U
     ///   - cellStyle: Style configuration for cells
     ///   - title: Title
     ///   - items: Items array
+    ///   - selected: Index of the selected item
     ///   - onSelect: Closure for selection
     public static func present(parent: UIViewController,
                                style: StyleConfig = StyleConfig(),
                                cellStyle: CellStyleConfig = CellStyleConfig(),
                                title: String? = nil,
                                items: [T],
+                               selected: Int? = nil,
                                onSelect: @escaping (T) -> Void) {
-        let controller = instantiate(style: style, cellStyle: cellStyle, title: title, items: items, onSelect: onSelect)
+        let controller = instantiate(style: style, cellStyle: cellStyle, title: title, items: items, selected: selected, onSelect: onSelect)
         controller.modalPresentationStyle = .overCurrentContext
         parent.present(controller, animated: false)
     }
 
-    private static func instantiate(style: StyleConfig, cellStyle: CellStyleConfig, title: String?, items: [T], onSelect: @escaping (T) -> Void) -> ActionSheetSelectorViewController {
+    private static func instantiate(style: StyleConfig, cellStyle: CellStyleConfig, title: String?, items: [T], selected: Int? = nil, onSelect: @escaping (T) -> Void) -> ActionSheetSelectorViewController {
         let controller = ActionSheetSelectorViewController(nibName: "ActionSheetSelectorViewController", bundle: Bundle.resources)
         controller.cellStyle = cellStyle
         controller.style = style
@@ -55,6 +57,10 @@ public class ActionSheetSelectorViewController<T: CellItem>: UIViewController, U
         controller.titleLabel.textColor = style.titleColor
         controller.titleOffset.constant = style.titleOffset
         controller.contentView.backgroundColor = style.backgroundColor
+
+        if let selected = selected {
+            controller.tableView.selectRow(at: IndexPath(row: selected, section: 0), animated: false, scrollPosition: .none)
+        }
         return controller
     }
     
