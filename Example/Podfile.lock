@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ActionSheetSelector: 48ab3e6a3291f3a6fdcb3e148e9134dd6f947e2b
+  ActionSheetSelector: ea11683c4351af0261adc1df1411fc3df8eed4c3
 
 PODFILE CHECKSUM: d3ecba660a8d858114fc4c2f2e013a101a8b6940
 

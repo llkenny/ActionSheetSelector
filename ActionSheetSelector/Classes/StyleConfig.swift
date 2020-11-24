@@ -17,8 +17,15 @@ public struct StyleConfig {
     let titleOffset: CGFloat
     /// Background color
     let backgroundColor: UIColor
-    /// Cell height
-    let cellHeight: CGFloat
+    /**
+     Cell height
+
+     - Important:
+     Ignores CellStyleConfig.numberOfLines
+
+     If nil - using height calculation for the maximum number of lines.
+     */
+    let cellHeight: CGFloat?
     /// Sheet corner radius
     let cornerRadius: CGFloat
     /// Darkening effect transparency
@@ -28,7 +35,7 @@ public struct StyleConfig {
                 titleColor: UIColor = UIColor.black,
                 titleOffset: CGFloat = 48,
                 backgroundColor: UIColor = UIColor.white,
-                cellHeight: CGFloat = 40,
+                cellHeight: CGFloat? = 40,
                 cornerRadius: CGFloat = 16,
                 emptyAlpha: CGFloat = 0.2) {
         self.titleFont = titleFont

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -71,7 +72,7 @@
                             </subviews>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Hf7-Mz-rVA" secondAttribute="trailing" constant="16" id="04Z-TJ-ykt"/>
                         <constraint firstItem="Hf7-Mz-rVA" firstAttribute="top" secondItem="gMc-gM-IMX" secondAttribute="top" constant="16" id="BWb-5E-KTm"/>
@@ -80,6 +81,7 @@
                     </constraints>
                 </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Z4A-yx-hiO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9BO-Iu-sqy"/>
@@ -87,10 +89,10 @@
                 <constraint firstItem="gMc-gM-IMX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Rgo-Ru-1da"/>
                 <constraint firstAttribute="bottom" secondItem="Z4A-yx-hiO" secondAttribute="bottom" id="TAC-c4-7Fk"/>
                 <constraint firstItem="Z4A-yx-hiO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="W9M-Fi-pcr"/>
+                <constraint firstItem="gMc-gM-IMX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="top" id="XQP-te-kNr"/>
                 <constraint firstItem="Z4A-yx-hiO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="kb9-1J-squ"/>
                 <constraint firstItem="gMc-gM-IMX" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="wkw-fi-Zmh"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="142"/>
         </view>
         <tapGestureRecognizer id="EYZ-ux-Nco">
@@ -99,4 +101,9 @@
             </connections>
         </tapGestureRecognizer>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
