@@ -71,7 +71,7 @@ public class ActionSheetSelectorViewController<T: CellItem>: UIViewController, U
 
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tableViewHeight.constant = CGFloat(items.count) * style.cellHeight
+        configTableViewHeight()
         UIView.animate(withDuration: animationDuration, animations: {
             self.emptyView.alpha = self.style.emptyAlpha
             self.view.layoutIfNeeded()
@@ -87,8 +87,21 @@ public class ActionSheetSelectorViewController<T: CellItem>: UIViewController, U
         tableView.register(nib, forCellReuseIdentifier: "cell")
     }
 
+    private func configTableViewHeight() {
+        if let cellHeight = style.cellHeight {
+            tableViewHeight.constant = CGFloat(items.count) * cellHeight
+        } else {
+            let height = items
+                .map { ItemTableViewCell.height(for: $0.title, width: tableView.bounds.width, font: cellStyle.titleFont) }
+                .reduce(0, +)
+            tableViewHeight.constant = height
+        }
+    }
+
     fileprivate func config(style: StyleConfig) {
-        tableView.rowHeight = style.cellHeight
+        if let cellHeight = style.cellHeight {
+            tableView.rowHeight = cellHeight
+        }
         contentView.layer.cornerRadius = style.cornerRadius
         contentView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
@@ -120,5 +133,15 @@ public class ActionSheetSelectorViewController<T: CellItem>: UIViewController, U
         let item = items[indexPath.row]
         onSelect(item)
         dismiss()
+    }
+
+    public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if let cellHeight = style.cellHeight {
+            return cellHeight
+        } else {
+            let item = items[indexPath.row]
+            let height = ItemTableViewCell.height(for: item.title, width: tableView.bounds.width, font: cellStyle.titleFont)
+            return height
+        }
     }
 }

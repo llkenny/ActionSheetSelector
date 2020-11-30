@@ -19,4 +19,18 @@ final class ViewController: UIViewController {
             debugPrint(item)
         }
     }
+
+    @IBAction func showMultilineButtonTouch(_ sender: Any) {
+        let image = UIImage(named: "checked")!
+        let cellStyle = CellStyleConfig(titleSelectedColor: UIColor(red: 0, green: 0.37, blue: 0.72, alpha: 1), iconImage: image, numberOfLines: 0)
+        let items = [Item(id: "1", title: "Verylongline Verylongline Verylongline"),
+                     Item(id: "2", title: "Verylongline Verylongline Verylongline Verylongline Verylongline Verylongline Verylongline Verylongline Verylongline Verylongline Verylongline"),
+                     Item(id: "3", title: "Verylongline Verylongline"),
+                     Item(id: "4", title: "Verylongline Verylongline Verylongline Verylongline Verylongline Verylongline Verylongline Verylongline"),
+        ]
+        let style = StyleConfig(cellHeight: nil)
+        ActionSheetSelectorViewController.present(parent: self, style: style, cellStyle: cellStyle, title: "Test", items: items) { item in
+            debugPrint(item)
+        }
+    }
 }
